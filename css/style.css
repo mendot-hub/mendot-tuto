@@ -1,0 +1,159 @@
+.bgeh {
+    /* background-color: aquamarine; */
+    background-image: url('/src/ChatGPT\ Image\ Sep\ 12\,\ 2025\,\ 11_27_18\ AM.png');
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.text-green {
+    color: green;
+}
+  .section-title {
+    font-weight: 700;
+    color: #2e7d32;
+    font-size: 2.2rem;
+    border-bottom: 2px solid #81c784;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  .shadow-sm {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow {
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+  }
+
+  .text-muted {
+    color: #555 !important;
+  }
+
+  ul li {
+    font-size: 1.05rem;
+    color: #444;
+  }
+.hero-section {
+  height: 100vh;
+  background-image: url('/src/97268867_p0_master1200.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 80, 0, 0.5); /* Overlay hijau gelap transparan */
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2e7d32;
+  margin-bottom: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+  .font-utama {
+    font-family: 'Lato', sans-serif;
+  }
+
+  .judul-utama {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #2e7d32; /* Hijau profesional */
+  }
+
+  .subjudul {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #388e3c;
+  }
+
+.highlight {
+  background: yellow;
+  padding: 2px;
+  border-radius: 3px;
+}
+.current {
+  background: orange;
+}
+#search-info {
+  margin-left: 10px;
+  font-weight: bold;
+}
+.highlight {
+  background: yellow;
+  font-weight: bold;
+  padding: 2px;
+}
+#search-info {
+  margin-left: 12px;     /* kasih jarak dari tombol terakhir */
+  font-size: 0.9rem;     /* sedikit lebih kecil dari tombol */
+  color: #666;           /* abu-abu biar tidak mencolok */
+  white-space: nowrap;   /* biar nggak turun ke bawah */
+  line-height: 1;        /* tidak mengubah tinggi tombol */
+}
+
+.hover-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .hover-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  }
+  .icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e6f4ea;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .hover-card:hover .icon-circle {
+    background: #2e7d32;
+    transform: rotate(10deg) scale(1.1);
+  }
+  .hover-card:hover .icon-circle i {
+    color: white !important;
+  }
+
+  .contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    background: #eaf7ee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  .btn-success {
+    transition: all 0.3s ease;
+  }
+  .btn-success:hover {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+  }
