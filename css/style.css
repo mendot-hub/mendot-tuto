@@ -157,3 +157,97 @@ html {
     background-color: #2e7d32;
     transform: scale(1.05);
   }
+  .program-card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    background: #fff;
+  }
+
+  .program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #e6f4ea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Animasi hover */
+.program-card {
+  background: #ffffff;
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.program-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+}
+
+/* Animasi ikon */
+.program-card .icon {
+  color: #2e7d32;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.program-card:hover .icon {
+  color: #1b5e20;
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* Judul section */
+.section-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #2e7d32;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #66bb6a;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* Efek hover untuk card kontak */
+.contact-card {
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+  background: #fff;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+}
+
+.contact-card .icon-box i {
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+.contact-card:hover .icon-box i {
+  color: #1b5e20;
+  transform: rotate(10deg) scale(1.2);
+}
+
+/* Form animasi halus */
+.contact-form-card {
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-form-card:hover {
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
