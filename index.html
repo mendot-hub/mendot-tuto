@@ -60,12 +60,107 @@
           <a class="nav-link" href="kontak.html" target="_self">Kontak Kami</a>
         </li>
       </ul>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success me-1" type="submit">Search</button>
-      <button type="button" id="prev" class="btn btn-outline-success me-1">Prev</button>
-      <button type="button" id="next" class="btn btn-outline-success me-1">Next</button>
-      <span id="search-info" class="ms-3 text-muted small"></span>
+
+<form class="d-flex" role="search">
+  <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+  <button class="btn btn-outline-success me-1" type="submit">Search</button>
+  <button type="button" id="prev" class="btn btn-outline-success me-1">Prev</button>
+  <button type="button" id="next" class="btn btn-outline-success me-1">Next</button>
+  <span id="search-info" class="ms-3 text-muted small"></span>
+</form>
+
+<script>
+let currentIndex = 0;
+let results = [];
+const searchInput = document.querySelector("input[type='search']");
+const searchForm  = document.querySelector("form[role='search']");
+
+// Saat submit form
+searchForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  doSearch();
+});
+
+// Saat mengetik (agar backspace menghapus highlight)
+searchInput.addEventListener("input", function() {
+  let keyword = this.value.trim();
+  if (keyword === "") {
+    clearHighlights(document.body);
+    results = [];
+    currentIndex = 0;
+    document.getElementById("search-info").innerText = "";
+    return;
+  }
+  // doSearch();
+});
+
+function doSearch() {
+  let keyword = searchInput.value.trim();
+  if (keyword === "") return;
+
+  // Hapus highlight lama
+  clearHighlights(document.body);
+
+  results = [];
+  currentIndex = 0;
+
+  let regex = new RegExp(`(${keyword})`, "i");
+   console.log(regex);
+
+  function highlight(node) {
+    if (node.nodeType === 3) {
+      if (regex.test(node.nodeValue)) {
+        let span = document.createElement("span");
+        span.innerHTML = node.nodeValue.replace(regex, `<span class="highlight">$1</span>`);
+        node.replaceWith(...span.childNodes);
+      }
+    } else if (node.nodeType === 1 && node.childNodes) {
+      if (!["SCRIPT", "STYLE", "INPUT", "TEXTAREA"].includes(node.tagName)) {
+        node.childNodes.forEach(highlight);
+      }
+    }
+  }
+
+  highlight(document.body);
+
+  results = Array.from(document.body.querySelectorAll(".highlight"));
+  
+  if (results.length > 0) {
+    goToResult(0);
+  } else {
+    document.getElementById("search-info").innerText = "";
+    alert("Hasil pencarian tidak ditemukan!");
+  }
+}
+
+function clearHighlights(root) {
+  root.querySelectorAll(".highlight").forEach(el => {
+    el.replaceWith(document.createTextNode(el.textContent));
+  });
+}
+
+function goToResult(index) {
+  results.forEach(el => el.classList.remove("current"));
+  if (results.length > 0) {
+    currentIndex = (index + results.length) % results.length;
+    results[currentIndex].classList.add("current");
+    results[currentIndex].scrollIntoView({behavior: "smooth", block: "center"});
+    document.getElementById("search-info").innerText = 
+      `Hasil ${currentIndex + 1} dari ${results.length}`;
+  }
+}
+
+document.getElementById("next").addEventListener("click", function() {
+  if (results.length > 0) goToResult(currentIndex + 1);
+});
+
+document.getElementById("prev").addEventListener("click", function() {
+  if (results.length > 0) goToResult(currentIndex - 1);
+});
+</script>
+
+
+
       </form>
     </div>
   </div>
@@ -112,83 +207,15 @@
   </div>
 </section>
 
-<script>
-let currentIndex = 0;
-let results = [];
-
-document.querySelector("form[role='search']").addEventListener("submit", function(e) {
-  e.preventDefault(); 
-
-  let keyword = document.querySelector("input[type='search']").value.trim();
-  if (keyword === "") return;
-
-  let container = document.body;
-
-  // Hapus highlight lama
-  container.querySelectorAll(".highlight").forEach(el => {
-    el.replaceWith(document.createTextNode(el.textContent));
-  });
-
-  results = [];
-  currentIndex = 0;
-
-  let regex = new RegExp(`(${keyword})`, "gi");
-
-  function highlight(node) {
-    if (node.nodeType === 3) {
-      if (regex.test(node.nodeValue)) {
-        let span = document.createElement("span");
-        span.innerHTML = node.nodeValue.replace(regex, `<span class="highlight">$1</span>`);
-        node.replaceWith(...span.childNodes);
-      }
-    } else if (node.nodeType === 1 && node.childNodes) {
-      if (!["SCRIPT", "STYLE", "INPUT", "TEXTAREA"].includes(node.tagName)) {
-        node.childNodes.forEach(highlight);
-      }
-    }
-  }
-
-  highlight(container);
-
-  results = Array.from(container.querySelectorAll(".highlight"));
-
-  if (results.length > 0) {
-    goToResult(0);
-  } else {
-    document.getElementById("search-info").innerText = "";
-    alert("Hasil pencarian tidak ditemukan!");
-  }
-});
-
-function goToResult(index) {
-  results.forEach(el => el.classList.remove("current"));
-  if (results.length > 0) {
-    currentIndex = (index + results.length) % results.length;
-    results[currentIndex].classList.add("current");
-    results[currentIndex].scrollIntoView({behavior: "smooth", block: "center"});
-    document.getElementById("search-info").innerText = `Hasil ${currentIndex + 1} dari ${results.length}`;
-  }
-}
-
-document.getElementById("next").addEventListener("click", function() {
-  if (results.length > 0) goToResult(currentIndex + 1);
-});
-
-document.getElementById("prev").addEventListener("click", function() {
-  if (results.length > 0) goToResult(currentIndex - 1);
-});
-
-searchInput.addEventListener("input", function() {
-  let keyword = this.value.trim();
-  clearHighlights();
-  if (keyword !== "") highlightText(keyword);
-});
-</script>
 
 <!--program unggulan-->
  <section id="program" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="section-title">Program Unggulan</h2>
+    <div class="container">
+    <div class="row justify-content-center mb-4">
+      <div class="col-12 text-center">
+        <h2 class="section-title">Program Unggulan</h2>
+      </div>
+    </div>
       <div class="row">
         <div class="col-md-4 mb-4" data-aos="flip-left">
           <i class="fas fa-stethoscope fa-3x mb-3"></i>
@@ -327,4 +354,5 @@ searchInput.addEventListener("input", function() {
 </body>
 
 </html>
+
 
