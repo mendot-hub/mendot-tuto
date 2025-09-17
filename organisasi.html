@@ -62,38 +62,52 @@
           <a class="nav-link" href="kontak.html" target="_self">Kontak Kami</a>
         </li>
       </ul>
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success me-1" type="submit">Search</button>
-      <button type="button" id="prev" class="btn btn-outline-success me-1">Prev</button>
-      <button type="button" id="next" class="btn btn-outline-success me-1">Next</button>
-      <span id="search-info" class="ms-3 text-muted small"></span>
-      </form>
-    </div>
-  </div>
-</nav>
+    
+      <form class="d-flex" role="search">
+  <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+  <button class="btn btn-outline-success me-1" type="submit">Search</button>
+  <button type="button" id="prev" class="btn btn-outline-success me-1">Prev</button>
+  <button type="button" id="next" class="btn btn-outline-success me-1">Next</button>
+  <span id="search-info" class="ms-3 text-muted small"></span>
+</form>
 
 <script>
 let currentIndex = 0;
 let results = [];
+const searchInput = document.querySelector("input[type='search']");
+const searchForm  = document.querySelector("form[role='search']");
 
-document.querySelector("form[role='search']").addEventListener("submit", function(e) {
-  e.preventDefault(); 
+// Saat submit form
+searchForm.addEventListener("submit", function(e) {
+  e.preventDefault();
+  doSearch();
+});
 
-  let keyword = document.querySelector("input[type='search']").value.trim();
+// Saat mengetik (agar backspace menghapus highlight)
+searchInput.addEventListener("input", function() {
+  let keyword = this.value.trim();
+  if (keyword === "") {
+    clearHighlights(document.body);
+    results = [];
+    currentIndex = 0;
+    document.getElementById("search-info").innerText = "";
+    return;
+  }
+  // doSearch();
+});
+
+function doSearch() {
+  let keyword = searchInput.value.trim();
   if (keyword === "") return;
 
-  let container = document.body;
-
   // Hapus highlight lama
-  container.querySelectorAll(".highlight").forEach(el => {
-    el.replaceWith(document.createTextNode(el.textContent));
-  });
+  clearHighlights(document.body);
 
   results = [];
   currentIndex = 0;
 
-  let regex = new RegExp(`(${keyword})`, "gi");
+  let regex = new RegExp(`(${keyword})`, "i");
+   console.log(regex);
 
   function highlight(node) {
     if (node.nodeType === 3) {
@@ -109,17 +123,23 @@ document.querySelector("form[role='search']").addEventListener("submit", functio
     }
   }
 
-  highlight(container);
+  highlight(document.body);
 
-  results = Array.from(container.querySelectorAll(".highlight"));
-
+  results = Array.from(document.body.querySelectorAll(".highlight"));
+  
   if (results.length > 0) {
     goToResult(0);
   } else {
     document.getElementById("search-info").innerText = "";
     alert("Hasil pencarian tidak ditemukan!");
   }
-});
+}
+
+function clearHighlights(root) {
+  root.querySelectorAll(".highlight").forEach(el => {
+    el.replaceWith(document.createTextNode(el.textContent));
+  });
+}
 
 function goToResult(index) {
   results.forEach(el => el.classList.remove("current"));
@@ -127,7 +147,8 @@ function goToResult(index) {
     currentIndex = (index + results.length) % results.length;
     results[currentIndex].classList.add("current");
     results[currentIndex].scrollIntoView({behavior: "smooth", block: "center"});
-    document.getElementById("search-info").innerText = `Hasil ${currentIndex + 1} dari ${results.length}`;
+    document.getElementById("search-info").innerText = 
+      `Hasil ${currentIndex + 1} dari ${results.length}`;
   }
 }
 
@@ -138,13 +159,15 @@ document.getElementById("next").addEventListener("click", function() {
 document.getElementById("prev").addEventListener("click", function() {
   if (results.length > 0) goToResult(currentIndex - 1);
 });
-
-searchInput.addEventListener("input", function() {
-  let keyword = this.value.trim();
-  clearHighlights();
-  if (keyword !== "") highlightText(keyword);
-});
 </script>
+
+
+
+      </form>
+
+    </div>
+  </div>
+</nav>
 
   <!-- Profil Section -->
   <section class="container py-5">
@@ -234,3 +257,4 @@ searchInput.addEventListener("input", function() {
 </body>
 
 </html>
+
