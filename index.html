@@ -185,58 +185,22 @@ searchInput.addEventListener("input", function() {
 });
 </script>
 
-
-
-<section id="visimisi" class="py-5 bg-light">
-  <div class="container">
-    <div class="row justify-content-center mb-4"></div>
-    <div class="col-12 text-center">
-      <h2 class="section-title">Visi & Misi</h2>
-    </div>
-    <!-- Bagian Visi -->
-    <div class="row mb-5 align-items-center">
-      <div class="col-md-6">
-        <div class="p-4 bg-white rounded shadow-sm">
-          <h4 class="text-success mb-4"><i class="fas fa-bullseye me-2"></i>Visi</h4>
-          <p class="text-muted">Menjadi institusi pendidikan kesehatan yang unggul dalam menjamin mutu pelayanan dan pendidikan untuk menghasilkan lulusan yang profesional, kompeten, dan berdaya saing global.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bagian Misi -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="p-4 bg-white rounded shadow-sm">
-          <h4 class="text-success mb-4"><i class="fas fa-list-ul me-2"></i>Misi</h4>
-          <ul class="list-unstyled ms-3">
-            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Menyelenggarakan pendidikan kesehatan berbasis mutu dan berkelanjutan.</li>
-            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Mengembangkan SDM yang kompeten melalui pelatihan dan pembinaan rutin.</li>
-            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Meningkatkan pelayanan masyarakat berbasis kepuasan pengguna.</li>
-            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Melaksanakan audit dan evaluasi mutu secara sistematis.</li>
-            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Menjalin kemitraan strategis dalam dan luar negeri.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!--program unggulan-->
  <section id="program" class="py-5 bg-light">
     <div class="container text-center">
       <h2 class="section-title">Program Unggulan</h2>
       <div class="row">
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" data-aos="flip-left">
           <i class="fas fa-stethoscope fa-3x mb-3"></i>
           <h5>Audit Mutu Internal</h5>
           <p>Pemeriksaan sistematis untuk memastikan mutu terjaga.</p>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" data-aos="flip-up" data-aos-delay="200">
           <i class="fas fa-user-graduate fa-3x mb-3"></i>
           <h5>Pelatihan SDM</h5>
           <p>Peningkatan kompetensi dosen dan tenaga medis.</p>
         </div>
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4" data-aos="flip-right" data-aos-delay="400">
           <i class="fas fa-comments fa-3x mb-3"></i>
           <h5>Survey Kepuasan</h5>
           <p>Menilai layanan melalui umpan balik dari civitas dan pengguna.</p>
@@ -244,6 +208,72 @@ searchInput.addEventListener("input", function() {
       </div>
     </div>
   </section>
+
+  <!--berita-->
+  <section class="py-5">
+  <div class="container">
+    <h2 class="section-title text-center">Berita Terbaru</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 hover-card">
+          <img src="src/PKR.png" class="card-img-top" alt="berita1">
+          <div class="card-body">
+            <h5 class="card-title">Akreditasi Mutu 2025</h5>
+            <p class="card-text text-muted">Poltekkes Kemenkes Riau berhasil meraih akreditasi unggul pada tahun 2025.</p>
+            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 hover-card">
+          <img src="src/PKR.png" class="card-img-top" alt="berita2">
+          <div class="card-body">
+            <h5 class="card-title">Workshop SDM</h5>
+            <p class="card-text text-muted">Pelatihan rutin peningkatan kompetensi dosen dan tenaga kesehatan.</p>
+            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card shadow-sm border-0 hover-card">
+          <img src="src/PKR.png" class="card-img-top" alt="berita3">
+          <div class="card-body">
+            <h5 class="card-title">Survey Kepuasan</h5>
+            <p class="card-text text-muted">Hasil survey kepuasan mahasiswa dan masyarakat tahun 2025.</p>
+            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--testimoni-->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="section-title">Testimoni</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"Lingkungan belajar sangat nyaman dan berkualitas."</p>
+          <footer class="blockquote-footer">Mahasiswa Keperawatan</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"Tenaga pengajar kompeten, pelayanan prima."</p>
+          <footer class="blockquote-footer">Alumni Gizi</footer>
+        </blockquote>
+      </div>
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>"Audit mutu terstruktur, layanan makin profesional."</p>
+          <footer class="blockquote-footer">Stakeholder RS</footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Galeri Kegiatan -->
   <section class="py-5">
@@ -297,3 +327,4 @@ searchInput.addEventListener("input", function() {
 </body>
 
 </html>
+
