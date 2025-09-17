@@ -23,7 +23,7 @@
 </head>
 
 <body>
-
+  
   <div class="p-5 bgeh  text-center font-utama">
     <h1 class="judul-utama">Mutu Poltekkes Kemenkes Riau</h1>
     <p  class="subjudul"><b>Mutu Terjaga, Layanan Terpercaya, Menuju Poltekkes Unggul</b></p>
@@ -50,7 +50,7 @@
           </a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="visi_misi.html" target="_self">Visi & Misi</a></li>
-        <li><a class="dropdown-item" href="#">Organisasi dan Profil Pimpinan</a></li>
+        <li><a class="dropdown-item" href="organisasi.html">Organisasi dan Profil Pimpinan</a></li>
       </ul>
         </li>
         <li class="nav-item">
@@ -147,11 +147,11 @@ searchInput.addEventListener("input", function() {
 <!-- Kontak Kami -->
 <section id="kontak" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center fw-bold mb-5">Kontak Kami</h2>
+    <h2 class="fw-bold text-center mb-5" style="color: #2e7d32;" data-aos="fade-down">Kontak Kami</h2>
+    
     <div class="row g-4">
-
       <!-- Info Kontak -->
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
         <div class="card h-100 shadow-sm border-0 text-center p-4 contact-card">
           <div class="icon-box mb-3">
             <i class="fas fa-envelope fa-2x text-success"></i>
@@ -161,7 +161,7 @@ searchInput.addEventListener("input", function() {
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
         <div class="card h-100 shadow-sm border-0 text-center p-4 contact-card">
           <div class="icon-box mb-3">
             <i class="fas fa-phone fa-2x text-success"></i>
@@ -171,7 +171,7 @@ searchInput.addEventListener("input", function() {
         </div>
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
         <div class="card h-100 shadow-sm border-0 text-center p-4 contact-card">
           <div class="icon-box mb-3">
             <i class="fas fa-map-marker-alt fa-2x text-success"></i>
@@ -184,40 +184,39 @@ searchInput.addEventListener("input", function() {
 
     <!-- Form Kontak -->
     <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
-        <div class="card shadow-sm border-0 p-4">
+      <div class="col-md-8" data-aos="fade-up" data-aos-delay="400">
+        <div class="card shadow-sm border-0 p-4 contact-form-card">
           <h5 class="mb-4 text-center">Kirim Pesan</h5>
           <form action="mailto:amandahd31@gmail.com" method="post" enctype="text/plain">
-  <div class="mb-3">
-    <input type="text" class="form-control" name="Nama" placeholder="Nama Lengkap" required>
-  </div>
-  <div class="mb-3">
-    <input type="email" class="form-control" name="Email" placeholder="Email" required>
-  </div>
-  <div class="mb-3">
-    <textarea class="form-control" name="Pesan" rows="4" placeholder="Pesan Anda" required></textarea>
-  </div>
-  <div class="text-center">
-    <button type="submit" class="btn btn-success px-4 py-2">Kirim</button>
-  </div>
-</form>
-
+            <div class="mb-3">
+              <input type="text" class="form-control" name="Nama" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" name="Email" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" name="Pesan" rows="4" placeholder="Pesan Anda" required></textarea>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-success px-4 py-2">Kirim</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
   </div>
 </section>
-
 <!-- Tambahkan animasi scroll -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 <script>
   AOS.init({
-    duration: 800,
+    duration: 1000,
     once: true
   });
 </script>
+
 
 
 <!--footer-->
