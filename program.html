@@ -18,6 +18,8 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
@@ -50,7 +52,7 @@
           </a>
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" href="visi_misi.html" target="_self">Visi & Misi</a></li>
-        <li><a class="dropdown-item" href="#">Organisasi dan Profil Pimpinan</a></li>
+        <li><a class="dropdown-item" href="organisasi.html">Organisasi dan Profil Pimpinan</a></li>
       </ul>
         </li>
         <li class="nav-item">
@@ -144,29 +146,44 @@ searchInput.addEventListener("input", function() {
 });
 </script>
 
-<!--program unggulan-->
- <section id="program" class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="section-title">Program Unggulan</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4">
-          <i class="fas fa-stethoscope fa-3x mb-3"></i>
+<section id="program" class="py-5 bg-light">
+  <div class="container text-center">
+    <h2 class="fw-bold" style="color: #2e7d32;" data-aos="fade-down"> Program Unggulan</h2>
+    <br>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-stethoscope fa-3x mb-3 icon"></i>
           <h5>Audit Mutu Internal</h5>
           <p>Pemeriksaan sistematis untuk memastikan mutu terjaga.</p>
         </div>
-        <div class="col-md-4 mb-4">
-          <i class="fas fa-user-graduate fa-3x mb-3"></i>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-user-graduate fa-3x mb-3 icon"></i>
           <h5>Pelatihan SDM</h5>
           <p>Peningkatan kompetensi dosen dan tenaga medis.</p>
         </div>
-        <div class="col-md-4 mb-4">
-          <i class="fas fa-comments fa-3x mb-3"></i>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-comments fa-3x mb-3 icon"></i>
           <h5>Survey Kepuasan</h5>
           <p>Menilai layanan melalui umpan balik dari civitas dan pengguna.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // durasi animasi
+    once: true        // animasi hanya sekali saat scroll
+  });
+</script>
 
 <!--footer-->
 <footer style="background-color: #e6f4ea; color: #2e7d32; padding: 20px 0; margin-top: 50px;">
