@@ -173,21 +173,21 @@ document.getElementById("prev").addEventListener("click", function() {
 </nav>
 
   <!-- Profil Section -->
-  <section class="container py-5">
+ <!-- Bootstrap CSS & JS (jangan lupa sudah include di <head> atau sebelum </body>) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+<section class="container py-5">
     <div class="row g-4">
       
       <!-- Card 1 -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up">
         <div class="card shadow-sm hover-card h-100">
-          <img src="src/4.jpeg" class="card-img-top" alt="Direktur">
+          <img src="src/4.jpeg" class="card-img-top" alt="Direktur" data-bs-toggle="modal" data-bs-target="#modalDirektur">
           <div class="card-body text-center">
-            <h5 class="card-title fw-bold">Dr. Nama Direktur</h5>
+            <h5 class="card-title fw-bold">Dr. killua</h5>
             <p class="text-muted">Direktur Poltekkes Kemenkes Riau</p>
-            <p>Memimpin dan mengarahkan strategi institusi menuju pendidikan kesehatan yang unggul.</p>
-            <div>
-              <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
-              <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
-            </div>
           </div>
         </div>
       </div>
@@ -195,15 +195,10 @@ document.getElementById("prev").addEventListener("click", function() {
       <!-- Card 2 -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
         <div class="card shadow-sm hover-card h-100">
-          <img src="src/3.jpeg" class="card-img-top" alt="Wadir 1">
+          <img src="src/3.jpeg" class="card-img-top" alt="Wadir 1" data-bs-toggle="modal" data-bs-target="#modalWadir1">
           <div class="card-body text-center">
-            <h5 class="card-title fw-bold">Nama Wadir 1</h5>
+            <h5 class="card-title fw-bold">Mrs. Sena</h5>
             <p class="text-muted">Wakil Direktur I</p>
-            <p>Bertanggung jawab pada bidang akademik dan pengembangan kurikulum pendidikan kesehatan.</p>
-            <div>
-              <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
-              <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
-            </div>
           </div>
         </div>
       </div>
@@ -211,21 +206,80 @@ document.getElementById("prev").addEventListener("click", function() {
       <!-- Card 3 -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card shadow-sm hover-card h-100">
-          <img src="src/5.jpeg" class="card-img-top" alt="Wadir 2">
+          <img src="src/5.jpeg" class="card-img-top" alt="Wadir 2" data-bs-toggle="modal" data-bs-target="#modalWadir2">
           <div class="card-body text-center">
-            <h5 class="card-title fw-bold">Nama Wadir 2</h5>
+            <h5 class="card-title fw-bold">Prof. Windah Habatusauda</h5>
             <p class="text-muted">Wakil Direktur II</p>
-            <p>Mengelola bidang administrasi umum, keuangan, serta tata kelola institusi.</p>
-            <div>
-              <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
-              <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
-            </div>
           </div>
         </div>
       </div>
 
     </div>
-  </section>
+</section>
+
+<!-- Modal Direktur -->
+<div class="modal fade" id="modalDirektur" tabindex="-1" aria-labelledby="modalDirekturLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDirekturLabel">Dr. Nama Direktur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="src/4.jpeg" class="img-fluid mb-3" alt="Direktur">
+        <p>Direktur Poltekkes Kemenkes Riau</p>
+        <p>Memimpin dan mengarahkan strategi institusi menuju pendidikan kesehatan yang unggul.</p>
+        <div>
+          <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Wadir 1 -->
+<div class="modal fade" id="modalWadir1" tabindex="-1" aria-labelledby="modalWadir1Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalWadir1Label">Nama Wadir 1</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="src/3.jpeg" class="img-fluid mb-3" alt="Wadir 1">
+        <p>Wakil Direktur I</p>
+        <p>Bertanggung jawab pada bidang akademik dan pengembangan kurikulum pendidikan kesehatan.</p>
+        <div>
+          <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Wadir 2 -->
+<div class="modal fade" id="modalWadir2" tabindex="-1" aria-labelledby="modalWadir2Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalWadir2Label">Nama Wadir 2</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="src/5.jpeg" class="img-fluid mb-3" alt="Wadir 2">
+        <p>Wakil Direktur II</p>
+        <p>Mengelola bidang administrasi umum, keuangan, serta tata kelola institusi.</p>
+        <div>
+          <a href="#" class="text-success me-2"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="text-success"><i class="fab fa-envelope fa-lg"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!--footer-->
@@ -260,5 +314,6 @@ document.getElementById("prev").addEventListener("click", function() {
 </body>
 
 </html>
+
 
 
