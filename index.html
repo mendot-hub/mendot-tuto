@@ -18,28 +18,40 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </head>
 
 <body>
+  <div class="p-5 bgeh text-center font-utama">
+  <h1 class="judul-utama" data-aos="fade-down" data-aos-duration="1000">Mutu Poltekkes Kemenkes Riau</h1>
+  <p class="subjudul" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <b>Mutu Terjaga, Layanan Terpercaya, Menuju Poltekkes Unggul</b>
+  </p>
+  <br>
+  <div class="row justify-content-center align-items-center mt-3 g-3">
+    <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="100">
+      <img src="src/PKR.png" alt="Logo 1" class="img-fluid">
+    </div>
+    <div class="col-12 col-sm-6 col-md-4 text-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="300">
+      <img src="src/Picsart_25-09-12_10-19-46-820.png" alt="Logo 2" class="img-fluid">
+    </div>
+    <div class="col-6 col-sm-4 col-md-2 text-center" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
+      <img src="src/Logo BLU Speed.png" alt="Logo 3" class="img-fluid">
+    </div>
+  </div>
+  </div>
 
-  <div src="css/style.css" class="p-5 bgeh text-center font-utama">
-    <h1 class="judul-utama">Mutu Poltekkes Kemenkes Riau</h1>
-    <p  class="subjudul"><b>Mutu Terjaga, Layanan Terpercaya, Menuju Poltekkes Unggul</b></p>
-    <br>
-    <div class="row justify-content-center align-items-center mt-3 g-3">
-  <div class="col-6 col-sm-4 col-md-2 text-center">
-    <img src="src/PKR.png" alt="Logo 1" class="img-fluid">
-  </div>
-  <div class="col-12 col-sm-6 col-md-4 text-center">
-    <img src="src/Picsart_25-09-12_10-19-46-820.png" alt="Logo 2" class="img-fluid">
-  </div>
-  <div class="col-6 col-sm-4 col-md-2 text-center">
-    <img src="src/Logo BLU Speed.png" alt="Logo 3" class="img-fluid">
-  </div>
-</div>
-  </div>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +60,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html" target="_self">Beranda</a>
+        <a class="nav-link active" aria-current="page" href="index.html" target="_self">Beranda</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,27 +78,27 @@
           <a class="nav-link" href="kontak.html" target="_self">Kontak Kami</a>
         </li>
       </ul>
+   
+  <form class="d-flex" role="search">
+    <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+    <button class="btn btn-outline-success me-1" type="submit">Search</button>
+    <span id="search-info" class="ms-3 text-muted small"></span>
+  </form>
 
-<form class="d-flex" role="search">
-  <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-  <button class="btn btn-outline-success me-1" type="submit">Search</button>
-  <span id="search-info" class="ms-3 text-muted small"></span>
-</form>
+  <script>
+  let currentIndex = 0;
+  let results = [];
+  const searchInput = document.querySelector("input[type='search']");
+  const searchForm  = document.querySelector("form[role='search']");
 
-<script>
-let currentIndex = 0;
-let results = [];
-const searchInput = document.querySelector("input[type='search']");
-const searchForm  = document.querySelector("form[role='search']");
-
-// Saat submit form
-searchForm.addEventListener("submit", function(e) {
+// saat submit form
+  searchForm.addEventListener("submit", function(e) {
   e.preventDefault();
   doSearch();
-});
+  });
 
-// Saat mengetik (agar backspace menghapus highlight)
-searchInput.addEventListener("input", function() {
+// saat mengetik (agar backspace menghapus highlight)
+  searchInput.addEventListener("input", function() {
   let keyword = this.value.trim();
   if (keyword === "") {
     clearHighlights(document.body);
@@ -95,14 +107,13 @@ searchInput.addEventListener("input", function() {
     document.getElementById("search-info").innerText = "";
     return;
   }
-  // doSearch();
-});
-
-function doSearch() {
+// doSearch();
+  });
+  function doSearch() {
   let keyword = searchInput.value.trim();
   if (keyword === "") return;
 
-  // Hapus highlight lama
+// hapus highlight lama
   clearHighlights(document.body);
 
   results = [];
@@ -135,15 +146,15 @@ function doSearch() {
     document.getElementById("search-info").innerText = "";
     alert("Hasil pencarian tidak ditemukan!");
   }
-}
+  }
 
-function clearHighlights(root) {
+  function clearHighlights(root) {
   root.querySelectorAll(".highlight").forEach(el => {
     el.replaceWith(document.createTextNode(el.textContent));
   });
-}
+  }
 
-function goToResult(index) {
+  function goToResult(index) {
   results.forEach(el => el.classList.remove("current"));
   if (results.length > 0) {
     currentIndex = (index + results.length) % results.length;
@@ -152,39 +163,35 @@ function goToResult(index) {
     document.getElementById("search-info").innerText = 
       `Hasil ${currentIndex + 1} dari ${results.length}`;
   }
-}
+  }
 
-document.getElementById("next").addEventListener("click", function() {
+  document.getElementById("next").addEventListener("click", function() {
   if (results.length > 0) goToResult(currentIndex + 1);
-});
+  });
 
-document.getElementById("prev").addEventListener("click", function() {
+  document.getElementById("prev").addEventListener("click", function() {
   if (results.length > 0) goToResult(currentIndex - 1);
-});
-</script>
-
-
-
-      </form>
+  });
+  </script>
     </div>
-  </div>
-</nav>
+    </div>
+  </nav>
 
 
  <!-- Tentang Kami -->
   <section id="tentang" class="py-5">
-  <div class="container">
+  <div class="container" data-aos="fade-up">
     <div class="row justify-content-center mb-4">
       <div class="col-12 text-center">
-        <h2 class="section-title">Profil Mutu</h2>
+        <h2 class="section-title" data-aos="fade-down">Profil Mutu</h2>
       </div>
     </div>
 
     <div class="row align-items-center mb-5">
-      <div class="col-md-6 text-center mb-4 mb-md-0">
+      <div class="col-md-6 text-center mb-4 mb-md-0" data-aos="zoom-in">
         <img src="src/PKR.png" width="450px" class="img-fluid rounded" alt="Tentang Mutu">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6" data-aos="fade-left">
         <p>
           Mutu Poltekkes Kemenkes Riau berkomitmen dalam menciptakan lingkungan pendidikan 
           dan pelayanan kesehatan yang berkualitas. Kami menjalankan program mutu berkelanjutan 
@@ -193,11 +200,11 @@ document.getElementById("prev").addEventListener("click", function() {
       </div>
     </div>
 
-    <!-- Bagian Sejarah -->
+<!-- Bagian Sejarah -->
     <div class="row">
       <div class="col-md-12">
-        <h3 class="mb-4 text-success"><i class="fas fa-book me-2"></i>Sejarah</h3>
-        <p class="text-muted" style="text-align: justify;">
+        <h3 class="mb-4 text-success"><i class="fas fa-book me-2" data-aos="fade-down"></i>Sejarah</h3>
+        <p class="text-muted" style="text-align: justify;" data-aos="fade-right">
           Sejarah Mutu Poltekkes Kemenkes Riau bermula dari komitmen pemerintah dalam meningkatkan kualitas tenaga kesehatan di wilayah Riau dan sekitarnya, melalui pembentukan institusi pendidikan yang berstandar nasional dan internasional. 
           Didirikan dengan visi menjadi pusat unggulan dalam bidang pendidikan kesehatan yang inovatif dan berorientasi pada pengembangan kompetensi praktis, Poltekkes Kemenkes Riau terus berkembang pesat sejak awal berdirinya. 
           Dalam perkembangannya, institusi ini secara konsisten mengadopsi standar mutu pendidikan yang ketat, termasuk penerapan sistem penjaminan mutu internal dan eksternal, penguatan kurikulum berbasis kompetensi, serta peningkatan fasilitas dan tenaga pengajar yang berkualitas tinggi. 
@@ -214,34 +221,38 @@ document.getElementById("prev").addEventListener("click", function() {
 
 <!--program unggulan-->
  <section id="program" class="py-5 bg-light">
-    <div class="container">
-    <div class="row justify-content-center mb-4">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Program Unggulan</h2>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="flip-left">
-          <i class="fas fa-stethoscope fa-3x mb-3"></i>
+  <div class="container text-center" data-aos="fade-up">
+    <h2 class="fw-bold" style="color: #2e7d32;" data-aos="fade-down"> Program Unggulan</h2>
+    <br>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-stethoscope fa-3x mb-3 icon"></i>
           <h5>Audit Mutu Internal</h5>
           <p>Pemeriksaan sistematis untuk memastikan mutu terjaga.</p>
         </div>
-        <div class="col-md-4 mb-4" data-aos="flip-up" data-aos-delay="200">
-          <i class="fas fa-user-graduate fa-3x mb-3"></i>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-user-graduate fa-3x mb-3 icon"></i>
           <h5>Pelatihan SDM</h5>
           <p>Peningkatan kompetensi dosen dan tenaga medis.</p>
         </div>
-        <div class="col-md-4 mb-4" data-aos="flip-right" data-aos-delay="400">
-          <i class="fas fa-comments fa-3x mb-3"></i>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+        <div class="program-card p-4 shadow-sm rounded">
+          <i class="fas fa-comments fa-3x mb-3 icon"></i>
           <h5>Survey Kepuasan</h5>
           <p>Menilai layanan melalui umpan balik dari civitas dan pengguna.</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!--berita-->
-  <section class="py-5">
+  <section class="py-5" data-aos="fade-up">
   <div class="container">
     <div class="row justify-content-center mb-4">
       <div class="col-12 text-center">
@@ -249,33 +260,36 @@ document.getElementById("prev").addEventListener("click", function() {
       </div>
     </div>
     <div class="row">
+      <!-- Card 1 -->
       <div class="col-md-4">
         <div class="card shadow-sm border-0 hover-card">
-          <img src="src/PKR.png" class="card-img-top" alt="berita1">
+          <img src="src/3.jpeg" class="card-img-top" alt="berita1">
           <div class="card-body">
             <h5 class="card-title">Akreditasi Mutu 2025</h5>
             <p class="card-text text-muted">Poltekkes Kemenkes Riau berhasil meraih akreditasi unggul pada tahun 2025.</p>
-            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+            <a href="css/style.css" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalBerita1">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
+      <!-- Card 2 -->
       <div class="col-md-4">
         <div class="card shadow-sm border-0 hover-card">
-          <img src="src/PKR.png" class="card-img-top" alt="berita2">
+          <img src="src/5.jpeg" class="card-img-top" alt="berita2">
           <div class="card-body">
             <h5 class="card-title">Workshop SDM</h5>
             <p class="card-text text-muted">Pelatihan rutin peningkatan kompetensi dosen dan tenaga kesehatan.</p>
-            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+            <a href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalBerita2">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
+      <!-- Card 3 -->
       <div class="col-md-4">
         <div class="card shadow-sm border-0 hover-card">
-          <img src="src/PKR.png" class="card-img-top" alt="berita3">
+          <img src="src/4.jpeg" class="card-img-top" alt="berita3">
           <div class="card-body">
             <h5 class="card-title">Survey Kepuasan</h5>
             <p class="card-text text-muted">Hasil survey kepuasan mahasiswa dan masyarakat tahun 2025.</p>
-            <a href="#" class="btn btn-sm btn-success">Baca Selengkapnya</a>
+            <a href="#" class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalBerita3">Baca Selengkapnya</a>
           </div>
         </div>
       </div>
@@ -283,53 +297,186 @@ document.getElementById("prev").addEventListener("click", function() {
   </div>
 </section>
 
-<!--testimoni-->
-<section class="py-5 bg-light">
-  <div class="container text-center">
-    <h2 class="section-title">Testimoni</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <blockquote class="blockquote">
-          <p>"Lingkungan belajar sangat nyaman dan berkualitas."</p>
-          <footer class="blockquote-footer">Mahasiswa Keperawatan</footer>
-        </blockquote>
+<!-- Modal Berita 1 -->
+<div class="modal fade" id="modalBerita1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Akreditasi Mutu 2025</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-      <div class="col-md-4">
-        <blockquote class="blockquote">
-          <p>"Tenaga pengajar kompeten, pelayanan prima."</p>
-          <footer class="blockquote-footer">Alumni Gizi</footer>
-        </blockquote>
+      <div class="modal-body">
+        <img src="src/3.jpeg" class="img-fluid mb-3 fade-image" alt="Berita 1">
+        <p>Poltekkes Kemenkes Riau berhasil meraih akreditasi unggul pada tahun 2025. 
+        Prestasi ini merupakan hasil kerja keras seluruh civitas akademika dan dukungan masyarakat.</p>
       </div>
-      <div class="col-md-4">
-        <blockquote class="blockquote">
-          <p>"Audit mutu terstruktur, layanan makin profesional."</p>
-          <footer class="blockquote-footer">Stakeholder RS</footer>
-        </blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Berita 2 -->
+<div class="modal fade" id="modalBerita2" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Workshop SDM</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+      <div class="modal-body">
+         <img src="src/5.jpeg" class="img-fluid mb-3 fade-image" alt="Berita 2">
+        <p>Pelatihan rutin ini bertujuan meningkatkan kompetensi dosen serta tenaga kesehatan
+        dalam menghadapi perkembangan ilmu pengetahuan dan teknologi kesehatan.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Berita 3 -->
+<div class="modal fade" id="modalBerita3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Survey Kepuasan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+         <img src="src/4.jpeg" class="img-fluid mb-3 fade-image" alt="Berita 3">
+        <p>Hasil survey kepuasan mahasiswa dan masyarakat tahun 2025 menunjukkan 
+        peningkatan signifikan terhadap layanan akademik maupun non-akademik.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Galeri Kegiatan -->
+<section id="galeri" class="py-5 bg-light" data-aos="fade-in">
+  <div class="container">
+    <div class="col-12 text-center">
+        <h2 class="section-title">Galeri Kegiatan</h2>
+      </div>
+    <!-- Wrapper Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="src/3.jpeg" class="img-fluid rounded shadow-sm" alt="Foto 1">
+        </div>
+        <div class="swiper-slide">
+          <img src="src/4.jpeg" class="img-fluid rounded shadow-sm" alt="Foto 2">
+        </div>
+        <div class="swiper-slide">
+          <img src="src/5.jpeg" class="img-fluid rounded shadow-sm" alt="Foto 3">
+        </div>
+      <div class="swiper-slide">
+        <img src="src/87logo-germas.jpg" class="img-fluid rounded shadow-sm" alt="foto 4">
+      </div>
+      </div>
+
+      <!-- Tombol navigasi -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+
+      <!-- Bulatan indikator -->
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </section>
 
-<!-- Galeri Kegiatan -->
-  <section class="py-5">
-    <div class="container text-center">
-      <h2 class="section-title">Galeri Kegiatan</h2>
-      <div class="row">
-        <div class="col-md-4 mb-3">
-          <img src="src/PKR.png" class="img-fluid rounded" alt="Kegiatan 1">
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,             // biar looping
+    centeredSlides: true,   // slide aktif di tengah
+    slidesPerView: 1,       // default 1 gambar di HP
+    spaceBetween: 20,
+    autoplay: {
+      delay: 3000,          // auto jalan 3 detik
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      768: {
+        slidesPerView: 2,   // tablet tampil 2 gambar
+      },
+      1024: {
+        slidesPerView: 3,   // laptop tampil 3 gambar
+      }
+    }
+  });
+</script>
+
+
+<!--testimoni-->
+<section class="py-5 bg-light" data-aos="fade-up">
+  <div class="container text-center">
+    <h2 class="section-title fw-bold mb-5">Testimoni</h2>
+
+    <div id="testimoniCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+        <!-- Item 1 -->
+        <div class="carousel-item active">
+          <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width: 600px;" data-aos="zoom-in">
+            <div class="card-body">
+              <img src="https://i.pravatar.cc/100?img=12" class="rounded-circle mb-3" alt="Mahasiswa Keperawatan">
+              <p class="lead fst-italic">
+                "Lingkungan belajar sangat nyaman dan berkualitas."
+              </p>
+              <h6 class="fw-bold mt-3">Mahasiswa Keperawatan</h6>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <img src="src/PKR.png" class="img-fluid rounded" alt="Kegiatan 2">
+
+        <!-- Item 2 -->
+        <div class="carousel-item">
+          <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width: 600px;" data-aos="zoom-in">
+            <div class="card-body">
+              <img src="https://i.pravatar.cc/100?img=25" class="rounded-circle mb-3" alt="Alumni Gizi">
+              <p class="lead fst-italic">
+                "Tenaga pengajar kompeten, pelayanan prima."
+              </p>
+              <h6 class="fw-bold mt-3">Alumni Gizi</h6>
+            </div>
+          </div>
         </div>
-        <div class="col-md-4 mb-3">
-          <img src="src/pngtree-health-care-gradient-blue-theme-light-effect-background-image_904155.jpg" class="img-fluid rounded" alt="Kegiatan 3">
+
+        <!-- Item 3 -->
+        <div class="carousel-item">
+          <div class="card shadow-lg border-0 p-4 mx-auto" style="max-width: 600px;" data-aos="zoom-in">
+            <div class="card-body">
+              <img src="https://i.pravatar.cc/100?img=40" class="rounded-circle mb-3" alt="Stakeholder RS">
+              <p class="lead fst-italic">
+                "Audit mutu terstruktur, layanan makin profesional."
+              </p>
+              <h6 class="fw-bold mt-3">Stakeholder RS</h6>
+            </div>
+          </div>
         </div>
+
       </div>
+
+      <!-- Kontrol Carousel -->
+<button class="carousel-control-prev" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon custom-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#testimoniCarousel" data-bs-slide="next">
+  <span class="carousel-control-next-icon custom-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
+
     </div>
-  </section>
+  </div>
+</section>
+
 
    <!-- Kontak -->
-  <section id="kontak" class="py-5 bg-success text-white text-center">
+  <section id="kontak" class="py-5 bg-success text-white text-center" data-aos="zoom-in">
     <div class="container">
       <h2 class="mb-4">Kontak Kami</h2>
       <p>Email: mutu@poltekkesriau.ac.id | Telp: (0761) XXXX</p>
@@ -359,14 +506,14 @@ document.getElementById("prev").addEventListener("click", function() {
     <p style="margin: 0;">&copy; 2025 Mutu Poltekkes Kemenkes Riau. All rights reserved.</p>
   </div>
 </footer>
+
+<script>
+  AOS.init({
+    duration: 1000,   // durasi animasi (ms)
+    once: true        // animasi hanya sekali saat scroll
+  });
+</script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
