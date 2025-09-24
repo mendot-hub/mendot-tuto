@@ -252,3 +252,127 @@ html {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Hover efek untuk card */
+.hover-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Judul section */
+.section-title {
+  font-weight: 700;
+  font-size: 2rem;
+  color: #198754; /* hijau Bootstrap */
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  background: #198754;
+  margin: 8px auto 0;
+  border-radius: 3px;
+}
+
+/* Modal body */
+.modal-body {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+.modal-title {
+  font-weight: 600;
+  color: #198754;
+}
+
+ /* Animasi Modal */
+    .modal.fade .modal-dialog {
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s ease-in-out;
+    }
+    .modal.show .modal-dialog {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Animasi Gambar di Modal */
+    .modal-body img {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.4s ease-in-out;
+    }
+    .modal.show .modal-body img {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+.galeri-img {
+  max-width: 300px;  /* ukuran maksimal gambar */
+  max-height: 220px;
+  object-fit: cover; /* biar proporsional */
+  margin: 0 auto;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Animasi zoom halus saat muncul */
+.carousel-item.active .galeri-img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+.carousel-item .galeri-img {
+  opacity: 0.6;
+}
+
+.galeri-img {
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.5s ease;
+}
+.galeri-img:hover {
+  transform: scale(1.05);
+}
+
+/* Efek animasi */
+.swiper-slide img {
+  border-radius: 15px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.swiper-slide-active img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+.swiper-slide-next img,
+.swiper-slide-prev img {
+  opacity: 0.7;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 100%, 100%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.carousel-control-prev-icon.custom-icon,
+.carousel-control-next-icon.custom-icon {
+  background-color: rgba(46, 125, 50, 0.9); /* hijau gelap transparan */
+  background-size: 60% 60%;
+  background-position: center;
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.5 0l-4 4 4 4z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.5 0l4 4-4 4z'/%3E%3C/svg%3E");
+}
